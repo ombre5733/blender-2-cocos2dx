@@ -28,7 +28,7 @@
 bl_info = {
     "name": "Cocos2d-x exporter",
     "author": "Manuel Freiberger",
-    "version": (1, 0, 0),
+    "version": (0, 2, 0),
     "blender": (2, 78, 0),
     "location": "File > Export",
     "description": "Exports objects to Cocos2d-x",

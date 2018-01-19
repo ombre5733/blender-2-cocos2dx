@@ -24,12 +24,10 @@
 # ====---------------------------------------------------------------------====
 
 PROJECT  = Cocos2d-x-Exporter
-VERSION  = 0.1.0
+VERSION := $(shell grep -P '"version":.*\(\d+.*\d+.*\d+\)' __init__.py | sed -Ee 's/.*([0-9]+).*([0-9]+).*([0-9]+).*/v\1\.\2\.\3/')
 BUILDDIR = build
 FILELIST = *.py LICENSE README.md
-
 .DEFAULT_GOAL := release
-
 
 release:
 	mkdir -p $(BUILDDIR)/$(PROJECT)

@@ -496,7 +496,7 @@ class addon_updater_end_background(bpy.types.Operator):
 ran_autocheck_install_popup = False
 ran_update_sucess_popup = False
 
-# global var for preventing successive calls 
+# global var for preventing successive calls
 ran_background_check = False
 
 @persistent
@@ -903,10 +903,10 @@ def update_settings_ui(self, context):
 
 
 # a global function for tag skipping
-# a way to filter which tags are displayed, 
+# a way to filter which tags are displayed,
 # e.g. to limit downgrading too far
 # input is a tag text, e.g. "v1.2.3"
-# output is True for skipping this tag number, 
+# output is True for skipping this tag number,
 # False if the tag is allowed (default for all)
 # Note: here, "self" is the acting updater shared class instance
 def skip_tag_function(self, tag):
@@ -1061,7 +1061,7 @@ def register(bl_info):
 
     # Used for development only, "pretend" to install an update to test
     # reloading conditions
-    updater.fake_install = True # Set to true to test callback/reloading
+    updater.fake_install = False  # Set to true to test callback/reloading
 
     # Override with a custom function on what tags
     # to skip showing for updater; see code for function above.
