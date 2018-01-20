@@ -115,6 +115,14 @@ class ExportCocos2dx(bpy.types.Operator, ExportHelper, IOCocos2dxOrientationHelp
 
     check_extension = True
 
+    def invoke(self, context, event):
+        """Invokes this Cocos2d-x export operator.
+        """
+        # Start the updater background thread, which checks automatically for updaters, if
+        # that option has been enabled by the user.
+        addon_updater_ops.check_for_update_background()
+        return super().invoke(context, event)
+
     def execute(self, context):
         from mathutils import Matrix
 
@@ -140,6 +148,8 @@ class ExportCocos2dx(bpy.types.Operator, ExportHelper, IOCocos2dxOrientationHelp
 
 
 class Cocos2dxExporterPreferences(bpy.types.AddonPreferences):
+    """The add-on preferences, which are shown in a panel in the Add-ons tab in Blender User Settings.
+    """
     bl_idname = os.path.basename(os.path.dirname(os.path.abspath(__file__)))
 
     # addon updater preferences
@@ -195,7 +205,7 @@ def register():
 def unregister():
     bpy.types.INFO_MT_file_export.remove(menu_func_export)
     bpy.utils.unregister_class(ExportCocos2dx)
-    bpy.utils.register_class(Cocos2dxExporterPreferences)
+    bpy.utils.unregister_class(Cocos2dxExporterPreferences)
     addon_updater_ops.unregister()
 
 
