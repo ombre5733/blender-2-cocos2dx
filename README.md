@@ -14,7 +14,7 @@ The obvious disadvantages of the c3t format are:
 Note that in this early stage the add-on does not export animations. It can
 only be used for exporting meshes.
 
-## Installation
+# Installation
 
 This addon is installed just like any other Blender addon. In case you have never done
 it before, follow the instructions below:
@@ -33,7 +33,7 @@ export menu. Follow the next steps to activate the add-on:
 * If the add-on should be activated automatically the next time when Blender starts, click on the
   ``Save User Settings`` button at the bottom of the dialog.
 
-## Updates
+# Updates
 
 The add-on can be updated in the ``Add-ons`` tab in the ``User Preferences``
 dialog (``File > User Preferences...``).
@@ -41,7 +41,7 @@ Simply click on the small triangle to the left of the add-on to show the updater
 options. Here it is also possible to activate auto-updating and the frequency
 for checking for updater. Note that auto-updates are disabled by default.
 
-## Usage
+# Usage
 
 Exporting with the Cocos2d-x add-on follows the same procedure as most other
 exporters. The steps are:
@@ -52,7 +52,7 @@ exporters. The steps are:
 * Adjust the export options (see below).
 * Press ``Export Cocos2d-x`` in the upper right corner to create the c3t file.
 
-### Export options
+## Export options
 
 The Cocos2d-x add-on makes the options listed below available for the export.
 Note that the add-on always operates on copies of the objects, e.g. when
@@ -82,14 +82,14 @@ applying the mesh modifiers, so no harm is done to the original data.
 * ``Path Mode:`` Selects how the exporter deals with file names of textures, which
   are referenced by the exported objects.
 
-### Known issues
+# Known issues
 
 If in Cocos2d-x a texture does not show up and the model is painted with a solid red color instead, most likely
 Cocos2d-x is not able to find the texture. In this case, it is recommended to set ``Path Mode`` to ``Copy``. This will copy the
 textures into the same directory as the c3t output file. In the JSON file, the texture is then referenced only
 by its filen ame.
 
-## Future work
+# Future work
 
 * Exporting animations is work in progress.
 * Only the text-based c3t format is supported. There is no support for writing a binary c3b file, yet.
