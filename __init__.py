@@ -65,7 +65,7 @@ class ExportCocos2dx(bpy.types.Operator, ExportHelper, IOCocos2dxOrientationHelp
     bl_label = 'Export Cocos2d-x'
     bl_options = {'PRESET'}
 
-    filename_ext = ".c3t"
+    filename_ext = '.c3t'
     filter_glob = StringProperty(
             default='*.c3t',
             options={'HIDDEN'},
@@ -131,7 +131,7 @@ class ExportCocos2dx(bpy.types.Operator, ExportHelper, IOCocos2dxOrientationHelp
         global_matrix = (Matrix.Scale(self.global_scale, 4)
                          * axis_conversion(to_forward=self.axis_forward,
                                            to_up=self.axis_up).to_4x4())
-        keywords["global_matrix"] = global_matrix
+        keywords['global_matrix'] = global_matrix
 
         exporter = export_cocos2dx.Exporter(context=context, source_filepath=bpy.data.filepath,
                                             dest_filepath=self.filepath, path_mode=self.path_mode)

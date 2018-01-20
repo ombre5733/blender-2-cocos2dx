@@ -440,4 +440,3 @@ class Exporter:
 
         # Copy all textures which have been collected in the copy-set.
         bpy_extras.io_utils.path_reference_copy(self._copy_set)
-
