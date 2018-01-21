@@ -1,25 +1,24 @@
 # blender-addon-cocos2dx
 
-This Blender add-on allows to export one or more objects to Cocos2d-x. It
-uses Cocos2d-x's JSON format (c3t). The advantages of this format are:
-* It uses a standardized data format and can be loaded without much effort in
-  most programming languages.
+This is a Blender exporter to write objects in the Cocos2d-x ``c3t`` format, which
+is a JSON text file. Directly exporting to Cocos2d-x's native text format obsoletes
+the usual workflow of exporting to FBX and converting to Cocos2d-x with ``fbx-conv``.
+
+The advantages of the ``c3t`` format are:
+* It is plain JSON, which is standardized and easy to load in most programming languages.
 * It is human readable and easy to understand.
-* It can be modified in any text editor to quickly
+* It can be modified in a text editor to quickly experiment with changes in
+  transformation matrices, for example.
 
-The obvious disadvantages of the c3t format are:
-* It is much larger than a binary format.
-* Loading in Cocos2d-x is slower.
-
-Note that in this early stage the add-on does not export animations. It can
-only be used for exporting meshes.
+Note that the current version of this add-on does not export animations, yet. Also, it
+cannot serialize to ``c3b``, which is a binary format used by Cocos2d-x.
 
 # Installation
 
-This addon is installed just like any other Blender addon. In case you have never done
+This add-on is installed just like any other Blender add-on. In case you have never done
 it before, follow the instructions below:
 
-* Safe this add-on's ZIP-file on the hard disk.
+* Download this add-on in its ZIP-form.
 * Go to ``File > User Preferences...``
 * Select the ``Add-ons`` tab.
 * Press the button ``Install Add-on from File...`` at the bottom of the tab.
@@ -35,11 +34,11 @@ export menu. Follow the next steps to activate the add-on:
 
 # Updates
 
-The add-on can be updated in the ``Add-ons`` tab in the ``User Preferences``
+The add-on can be updated from the ``Add-ons`` tab in the ``User Preferences``
 dialog (``File > User Preferences...``).
 Simply click on the small triangle to the left of the add-on to show the updater
 options. Here it is also possible to activate auto-updating and the frequency
-for checking for updater. Note that auto-updates are disabled by default.
+for checking for updates. Note that auto-updates are disabled by default.
 
 # Usage
 
@@ -50,7 +49,7 @@ exporters. The steps are:
 * Next choose ``File > Export > Cocos2d-x (.c3t)`` to bring up the export dialog.
 * Select a directory and output filename.
 * Adjust the export options (see below).
-* Press ``Export Cocos2d-x`` in the upper right corner to create the c3t file.
+* Press ``Export Cocos2d-x`` in the upper right corner to create the ``c3t`` file.
 
 ## Export options
 
@@ -84,12 +83,12 @@ applying the mesh modifiers, so no harm is done to the original data.
 
 # Known issues
 
-If in Cocos2d-x a texture does not show up and the model is painted with a solid red color instead, most likely
-Cocos2d-x is not able to find the texture. In this case, it is recommended to set ``Path Mode`` to ``Copy``. This will copy the
+If a texture does not show up in Cocos2d-x and the model is painted with a solid red color instead, most likely
+Cocos2d-x is not able to find the texture file. In this case, it is recommended to set ``Path Mode`` to ``Copy``. This will copy the
 textures into the same directory as the c3t output file. In the JSON file, the texture is then referenced only
-by its filen ame.
+by its file name.
 
-# Future work
+# Work in progress
 
-* Exporting animations is work in progress.
-* Only the text-based c3t format is supported. There is no support for writing a binary c3b file, yet.
+* Export animations.
+* Add support for the binary ``c3b`` format.
