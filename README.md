@@ -1,8 +1,11 @@
-# blender-addon-cocos2dx
+![Logo](Logo.png "Blender-2-Cocos2d-x")
 
-This is a Blender exporter to write objects in the Cocos2d-x ``c3t`` format, which
+# Blender-2-Cocos2d-x
+
+This is a Blender exporter add-on to write objects in the Cocos2d-x ``c3t`` format, which
 is a JSON text file. Directly exporting to Cocos2d-x's native text format obsoletes
 the usual workflow of exporting to FBX and converting to Cocos2d-x with ``fbx-conv``.
+This is especially useful on Linux, where ``fbx-conv`` is not provided by Cocos2d-x.
 
 The advantages of the ``c3t`` format are:
 * It is plain JSON, which is standardized and easy to load in most programming languages.

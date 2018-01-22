@@ -971,12 +971,12 @@ def register(bl_info):
     updater.user = "ombre5733"
 
     # choose your own repository, must match git name
-    updater.repo = "blender-addon-cocos2dx"
+    updater.repo = "blender-2-cocos2dx"
 
     #updater.addon = # define at top of module, MUST be done first
 
     # Website for manual addon download, optional but recommended to set
-    updater.website = "https://github.com/ombre5733/blender-addon-cocos2dx"
+    updater.website = "https://github.com/ombre5733/blender-2-cocos2dx"
 
     # used to check/compare versions
     updater.current_version = bl_info["version"]
