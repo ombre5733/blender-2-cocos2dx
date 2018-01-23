@@ -43,6 +43,7 @@ except Exception as e:
 # otherwise the bl_idname's will not match and have errors.
 # Must be all lowercase and no spaces
 updater.addon = "addon_cocos2dx_export"
+addon_pretty_name = "Blender-2-Cocos2d-x"
 
 
 # -----------------------------------------------------------------------------
@@ -53,7 +54,7 @@ updater.addon = "addon_cocos2dx_export"
 # simple popup for prompting checking for update & allow to install if available
 class addon_updater_install_popup(bpy.types.Operator):
     """Check and install update if available"""
-    bl_label = "Update {x} addon".format(x=updater.addon)
+    bl_label = "Update {x} addon".format(x=addon_pretty_name)
     bl_idname = updater.addon+".updater_install_popup"
     bl_description = "Popup menu to check and display current updates available"
 
@@ -130,10 +131,10 @@ class addon_updater_install_popup(bpy.types.Operator):
 
 # User preference check-now operator
 class addon_updater_check_now(bpy.types.Operator):
-    bl_label = "Check now for "+updater.addon+" update"
+    bl_label = "Check now for {x} update".format(x=addon_pretty_name)
     bl_idname = updater.addon+".updater_check_now"
     bl_description = "Check now for an update to the {x} addon".format(
-                                                        x=updater.addon)
+                                                        x=addon_pretty_name)
 
     def execute(self,context):
 
@@ -165,10 +166,10 @@ class addon_updater_check_now(bpy.types.Operator):
 
 
 class addon_updater_update_now(bpy.types.Operator):
-    bl_label = "Update "+updater.addon+" addon now"
+    bl_label = "Update {x} addon now".format(x=addon_pretty_name)
     bl_idname = updater.addon+".updater_update_now"
     bl_description = "Update to the latest version of the {x} addon".format(
-                                                        x=updater.addon)
+                                                        x=addon_pretty_name)
 
     # if true, run clean install - ie remove all files before adding new
     # equivalent to deleting the addon and reinstalling, except the
@@ -218,10 +219,10 @@ class addon_updater_update_now(bpy.types.Operator):
 
 
 class addon_updater_update_target(bpy.types.Operator):
-    bl_label = updater.addon+" addon version target"
+    bl_label = addon_pretty_name+" addon version target"
     bl_idname = updater.addon+".updater_update_target"
     bl_description = "Install a targeted version of the {x} addon".format(
-                                                        x=updater.addon)
+                                                        x=addon_pretty_name)
 
     def target_version(self, context):
         # in case of error importing updater
@@ -547,7 +548,7 @@ def updater_run_install_popup_handler(scene):
             # user probably manually installed to get the up to date addon
             # in here. Clear out the update flag using this function
             if updater.verbose:
-                print("{} updater: appears user updated, clearing flag".format(\
+                print("{} updater: appears user updated, clearing flag".format(
                         updater.addon))
             updater.json_reset_restore()
             return
@@ -634,7 +635,7 @@ def check_for_update_background():
     # this function should take a bool input, if true: update ready
     # if false, no update ready
     if updater.verbose:
-        print("{} updater: Running background check for update".format(\
+        print("{} updater: Running background check for update".format(
                 updater.addon))
     updater.check_for_update_async(background_update_callback)
     ran_background_check = True

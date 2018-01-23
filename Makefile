@@ -23,7 +23,7 @@
 #     Created by Manuel Freiberger.
 # ====---------------------------------------------------------------------====
 
-PROJECT  = Cocos2d-x-Exporter
+PROJECT  = Blender-2-Cocos2d-x
 VERSION := $(shell grep -P '"version":.*\(\d+.*\d+.*\d+\)' __init__.py | sed -Ee 's/.*([0-9]+).*([0-9]+).*([0-9]+).*/v\1\.\2\.\3/')
 BUILDDIR = build
 FILELIST = *.py LICENSE README.md
